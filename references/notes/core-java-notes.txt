@@ -1,0 +1,260 @@
+History
+	- project started on 1991
+	- James Gosling, Mike Sheridan, Patrick Naughton
+	- v1.0 -> 1996
+	- 2006/07 -> JVM -> FOSS (Free & Open Source Software)
+	- 2009/10 -> Oracle acquired Sun Microsystems and become owner of Java
+	- latest version 15
+	
+Design Goals
+	- simple, object oriented, familiar
+	- robust and secure
+	- architectural neutral and portable
+	- high performance (JIT)
+	- interpreted, threaded and dynamic
+	
+Release
+	- v1.0 -> 1996
+	- v1.1 -> 1997
+	- v1.2 -> 1998	=> J2SE, J2EE, J2ME
+	- v1.3 -> 2000
+	- v1.4 -> 2002
+	- v5.0 -> 2004
+	- v6.0 -> 2006
+	- v7.0 -> 2011
+	- v8.0 -> 2014 (LTS) => OOP + FP (Lambda Expr + Stream API)
+	- v9.0 -> 2017
+	- v10  -> 2018(Mar)
+	- v11  -> 2018(Sep) (LTS)
+	- v12  -> 2019(Mar)
+	- v13  -> 2019(Sep)
+	- v14  -> 2020(Mar)
+	- v15  -> 2020(Sep)
+	
+JDK vs JRE vs JVM
+
+Java Editions
+	- Java SE (Standard Edition)
+	- Java EE (Enterprise Edition)
+	- Java ME (Micro Edition)
+	
+Language Constructs
+	- Data Types
+	- Variables
+	- Constants
+	- Operators
+	- Expressions, Statements, Blocks
+	- Control Flow Statements
+	- Loop Statements
+	- Branching Statements
+	- Naming Conventions
+	- Comments
+	- Arrays
+	- Strings
+	
+Object Oriented Programming
+	- Class
+	- Object
+	- Abstraction
+	- Encapsulation
+	- Inheritance
+	- Polymorphism
+	
+Collections
+	- An object that groups multiple elements into a single unit. Collections are used to store, retrieve, manipulate, and communicate aggregate data.
+	- A collections framework is a unified architecture for representing and manipulating collections
+	
+	[Collection Framework]
+	- Interfaces - Collection, Set, List, Queue, Deque, Map
+	- Implementations - ArrayList, LinkedList, HashSet, TreeSet, LinkedHashSet, ArrayDeque, HashMap, TreeMap, LinkedHashMap
+	- Algorithms - Sorting, Shuffling, Searching, Data Manipulation, Composition, Min/Max
+	
+	[Benefits]
+	- Reduces Programming Effort
+	- Increases Program Speed and Quality
+	- Allows interoperability among unrelated APIs
+	- Reduces effort to learn and to use new APIs
+	- Reduces effort to design new APIs
+	- Fosters software reuse
+	
+Generics
+	- Stronger type checks at compile time
+	- Elimination of casts
+	- Enabling programmers to implement generic algorithms
+	- Type Parameter Naming Convention
+		E - Element (used extensively by the Java Collections Framework)
+		K - Key
+		N - Number
+		T - Type
+		V - Value
+		S,U,V etc. - 2nd, 3rd, 4th types
+		
+Reflection
+	- An API that represents ("reflects") the classes, interfaces, and objects in the current Java Virtual Machine.
+	- Reflection is commonly used by programs which require the ability to examine or modify the runtime behavior of applications running in the Java virtual machine
+	[Use cases]
+	- Extensibility Features
+	- Class Browsers and Visual Development Environments
+	- Debuggers and Test Tools
+	[Limitations]
+	- Performance Overhead
+	- Security Restrictions
+	- Exposure of Internals
+	
+Annotations
+	-Annotations, a form of metadata, provide data about a program that is not part of the program itself
+	
+	[Use cases]
+	- Information for the compiler
+	- Compile-time and deployment-time processing
+	- Runtime Processing
+	
+	[Predefined Annotations]
+	- @Deprecated
+	- @Override
+	- @SuppressWarnings
+	- @SafeVarArgs
+	- @FunctionalInterface
+	[Custom Annotations]
+	[Meta Annotations]
+	- @Documented
+	- @Inherited
+	- @Retention
+	- @Target
+	- @Repeatable
+	
+Nested/Inner Classes
+	- A nested class is a member of its enclosing class.
+	- Non-static nested classes (inner classes) have access to other members of the enclosing class, even if they are declared private.
+	- Static nested classes do not have access to other members of the enclosing class
+	
+	[Why Nested Classes]
+	- It is a way of logically grouping classes that are only used in one place
+	- It increases encapsulation
+	- It can lead to more readable and maintainable code
+	
+	[Types]
+	- Static Nested Classes
+	- Inner Classes (Non-static)
+		- Local Inner Class -> declare an inner class within the body of a method
+		- Anonymous Inner Class -> declare an inner class within the body of a method without naming the class
+	
+Lambda Expressions
+	- Lambda expressions enables to treat functionality as method argument, or code as data.
+	- Functional Interface -> A functional interface is any interface that contains only one abstract method.
+	
+Stream APIs
+	- Streaming Source
+	- Intermediate Operations	-> filter, map, sort, distinct, etc..
+	- Termial Operations
+		- Reduce Operation -> count, avg, sum, min/max, etc..
+		- Collect Operation -> toList, toSet, grouping, etc..
+		
+Other Java 8 Features
+	- Default Methods
+	- Optional
+	- New DateTime API
+	
+Multi-threading and Concurrency API
+	- Concurrent Programming Overview
+	- Process vs Threads
+	- Thread Creation
+		- Extend Thread
+		- Implement Runnable
+		- Implement Callable
+	- Thread Constructs
+		- sleep
+		- interrupt
+		- join
+		- yield
+		- wait
+		- notify
+		- notifyall
+		- synchronized <- Thread Interference, Memory Inconsistency
+		- Thread Synchronization
+		- Thread Liveness
+			- Starvation
+			- DeadLock
+		- Concurrency API	
+			- Callable
+			- Executors 
+			- Thread Pool
+			- Future
+			
+			- ForkJoin Framework
+			- CompleteableFuture
+			
+			- Concurrent Collections
+			- Locks and Conditions
+			- Atomic
+		
+Java I/O
+	- An I/O Stream represents an input source or an output destination. A stream can represent many different kinds of sources and destinations, including disk files, devices, other programs, and memory arrays
+	- Byte Stream -> Programs use byte streams to perform input and output of 8-bit bytes
+	- Character Stream -> Java platform stores character values using Unicode conventions. Character stream I/O automatically translates this internal format to and from the local character set. 
+	- Buffered Stream -> Buffered input streams read data from a memory area known as a buffer; the native input API is called only when the buffer is empty. Similarly, buffered output streams write data to a buffer, and the native output API is called only when the buffer is full.
+		- Flushing Buffer Stream to sync write with native file sys
+	- Scanning and Formatting
+	- I/O from command line
+	
+JDBC API
+	- Specification to access RDBMS from Java
+	- 4 Types of drivers
+	- Steps required to access database
+		- Registering database drivers OR creating datasource
+		- Get Connection
+		- Create Statement
+		- Execute Query
+		- Access ResultSet
+	- RowSet provides more features to access the data on top of Resultset
+	
+[Appendix]
+Class Libraries
+	- Generics
+	- Collection Libraries
+	- Functional Programming
+	- Concurrency	
+	- IO/NIO
+	- Networking
+	- Reflection
+	- XML Processing
+	- Security
+	- Internalization and Localization
+	
+	- JDBC
+	- JNDI
+	- RMI and CORBA
+	- JMX
+	
+	- AWT
+	- Swing
+	- JavaFX
+	
+Java Tools
+	[Basic Tools]
+	- java		-> launcher for Java applications
+	- javac		-> compiler for the Java programming language
+	- javadoc	-> API documentation generator
+	- jar		-> create and manage Java Archive (JAR) files
+	- javap		-> class file disassembler
+	- jdeps		-> java class dependency analyzer
+	[Monitoring & Management]
+	- jcmd		-> JVM Diagnostic Commands tool - Sends diagnostic command requests to a running Java Virtual Machine
+	- jconsole	-> graphical tool for monitoring a Java virtual machine
+	- visualvm	-> provides memory and CPU profiling, heap dump analysis, memory leak detection, access to MBeans, and garbage collection
+	- jmc		-> java mission control -  includes tools to monitor and manage your Java application without introducing the performance overhead
+	- jps		-> JVM Process Status Tool - Lists instrumented HotSpot Java virtual machines on a target system
+	- jstat		-> JVM Statistics Monitoring Tool - Attaches to an instrumented HotSpot Java virtual machine and collects and logs performance statistics
+	- jinfo		-> prints configuration information for a given process
+	- jmap		-> prints shared object memory maps or heap memory details of a given process
+	- jhat		-> starts a web server on a heap dump file (for example, produced by jmap -dump), allowing the heap to be browsed
+	- jstack	-> prints a stack trace of threads for a given process	
+	
+	[Scripting]
+	- jjs		-> runs the Nashorn command-line script shell
+	
+Garbage Collectors
+	- Serial Garbage Collector [Single threaded. Freezes all app threads during GC]
+	- Parallel Garbage Collector [Multi threaded. Freezes all app threads during GC]
+	- Concurrent Mark Sweep [Multi threaded with shorter GC pauses]
+	- G1 Garbage Collector [Divides heap space into many regions and GCs region have more garbage]
