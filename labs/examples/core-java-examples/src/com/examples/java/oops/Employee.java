@@ -3,7 +3,7 @@ package com.examples.java.oops;
 /**
  * Models Employee object
  */
-public class Employee<T extends Number> extends Person implements Appraisable, Comparable<Employee<Number>> {
+public class Employee extends Person implements Appraisable {
 
 	// access modifiers
 	// private, public, protected, default
@@ -12,7 +12,7 @@ public class Employee<T extends Number> extends Person implements Appraisable, C
 	private int empId;
 	private String designation;
 	private String department;
-	private T salary;
+	private double salary;
 
 	// default constructor
 	public Employee() {
@@ -21,7 +21,7 @@ public class Employee<T extends Number> extends Person implements Appraisable, C
 	}
 
 	// overloaded custom constructor
-	public Employee(int empId, String name, int age, String gender, String designation, String department, T salary) {
+	public Employee(int empId, String name, int age, String gender, String designation, String department, double salary) {
 		super(name, age, gender);
 		this.empId = empId;
 		this.designation = designation;
@@ -53,11 +53,11 @@ public class Employee<T extends Number> extends Person implements Appraisable, C
 		this.department = department;
 	}
 
-	public T getSalary() {
+	public double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(T salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
 	}
 
@@ -101,19 +101,4 @@ public class Employee<T extends Number> extends Person implements Appraisable, C
 		return String.valueOf(this.empId) + " " + String.valueOf(this.getName() + " " + String.valueOf(this.getAge()));
 	}
 
-	// with raw type comparable interface implementation
-//	@Override
-//	public int compareTo(Object o) {
-//		if(o instanceof Employee)
-//		{		
-//			return this.getName().compareTo(((Employee) o).getName());		
-//		}
-//		return 0;
-//	}
-
-	// with generic type comparable interface implementation
-	@Override
-	public int compareTo(Employee<Number> o) {
-		return this.getName().compareTo(o.getName());
-	}
 }

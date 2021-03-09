@@ -5,7 +5,7 @@ public class EmployeeMain {
 	public static void main(String[] args) {
 		// Creates Employee object of type Employee
 		System.out.println("Employee object of type Employee \n");
-		Employee<Double> employee = new Employee<>(100, "Anand", 35, "Male", "Sr.Developer", "IT", 50000.0);
+		Employee employee = new Employee(100, "Anand", 35, "Male", "Sr.Developer", "IT", 50000.0);
 		employee.printDetails();
 		employee.appraise();
 
