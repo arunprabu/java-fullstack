@@ -1,0 +1,38 @@
+lowes_javabootcamp
+	|
+	|____	labs
+			|
+			|__corejava
+			|
+			|__springcore
+			|
+			|__springmvc
+			|
+			|__springrest
+			|
+			|__springboot
+
+	|
+	|____ 	assignments
+				|
+				|__corejava
+					|
+					|___employee-mgmt-app01
+										
+					|___employee-mgmt-app02
+				|
+				|__springcore
+					|
+					|___employee-mgmt-app03
+				|
+				|__sprngmvc
+					|
+					|__employee-mgmt-app04
+				|
+				|__springrest
+					|
+					|__employee-mgmt-app05
+				|
+				|__springboot
+					|
+					|__employee-mgmt-app06

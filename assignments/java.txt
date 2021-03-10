@@ -1,0 +1,7 @@
+ASSIGNMENT 01: Create Employee Management console application to perform CRUD operations using Arrays
+ASSIGNMENT 02: Create Employee Management console application to perform CRUD operations using Collections
+ASSIGNMENT 03: Enhance Employee Management Application to perform CRUD operations (with Validation and Exception Handling)
+ASSIGNMENT 04: Enhance Employee Management Application to support Import Employee details from file and Export Employee details to file
+ASSIGNMENT 05: Enhance Employee Management Application to run Import and Export functionality as separate threads with Java Concurrent API
+ASSIGNMENT 06: Enhance Employee Management Application to print employee statistics with Java 8 features
+ASSIGNMENT 07: Enhance Employee Management Application to persist data into database using JDBC
