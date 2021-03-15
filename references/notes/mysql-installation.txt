@@ -1,0 +1,16 @@
+STEP 1: Download MySQL zip file
+STEP 2: Copy into local directory and unzip
+STEP 3: Configure environmental variable to add MYSQL_HOME and update Path
+STEP 4: Open Commant Prompt as Administrator
+STEP 5: mysqld --version
+STEP 6: Create 'data' directory inside MySQL_HOME directory
+STEP 7: Initialize MySQL Server
+		mysqld --initialize-insecure
+STEP 8: Start MySQL Server
+		mysqld --console
+STEP 9: Open Command Prompt
+		mysql -u root -p
+		[Prompt password]
+		
+Note: Clean-up data directory if you get any error while executing
+	  mysqld- initialize-insecure command

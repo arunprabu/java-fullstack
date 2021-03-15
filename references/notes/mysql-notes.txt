@@ -1,0 +1,42 @@
+Database Management Systems
+	- DBMS Overview
+	- RDBMS Overview
+MySQL
+	- History & Background
+		- Developed by MySQL AB - Swedish Company
+		- David Axmark, Allan Larsson, Michael Widenius
+		- 1995 -> Initial Release
+		- SunMicrosystem Acquired MySQL 2008
+		- Oracle acquired Sun at 2010
+		- LAMP / WAMP
+		- Owned by Oracle
+		- Forked MySQL -> MariaDB
+		- 5.7.x -> RDBMS stable release
+		- 8.x -> NoSQL like document store with JSON support
+	- Storage Engines
+		- MyISAM -> Faster Read
+		- InnoDB -> ACID compliant, Support Tranctions and Referential Integrity
+	- Installation and Config changes
+	- Connect using MySQL client
+	- Connect using MySQL Workbench
+	- SQL
+		- DDL
+			- CREATE SCHEMA
+			- CREATE TABLE
+			- ALTER TABLE
+			- DROP TABLE
+			- CONSTRAINTS - PRIMARY & FOREIGN KEY
+		- DML
+			- SELECT
+				- WHERE
+				- GROUP BY
+				- HAVING
+				- ORDER BY
+				- JOIN
+			- INSERT
+			- UPDATE
+			- DELETE
+			- TRUNCATE
+		- DCL
+			- GRANT
+			- REVOKE

@@ -186,6 +186,40 @@ Collections
 	- Reduces effort to design new APIs
 	- Fosters software reuse
 	
+	Arrays
+		- Fixed size
+		- Sequential memory allocation
+		
+	Vector
+		- Dynamic Array
+		- Synchronized. Thread Safe
+		
+	Hashtable
+		- Key Value store (Objects)
+		- Synchronized. Thread Safe
+		
+	Properties
+		- Key Value store (String)
+		
+	List - indexed and ordered
+		- Vector
+		- ArrayList
+		- LinkedList
+			
+	Set - maintains unique values and sorted
+		- TreeSet
+		- HashSet
+		- LinkedHashSet
+			
+	Map - key value store
+		- TreeMap
+		- HashMap
+		- LinkedHashMap
+			
+	Queue - FIFO
+		- PriorityQueue
+		- Deque	
+	
 Generics
 	- Stronger type checks at compile time
 	- Elimination of casts
