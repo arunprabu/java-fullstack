@@ -17,9 +17,17 @@ lowes_javabootcamp
 				|
 				|__corejava
 					|
-					|___employee-mgmt-app01
+					|___employee-mgmt-with-arrays
 										
-					|___employee-mgmt-app02
+					|___employee-mgmt-with-collection
+					|
+					 __ employee-mgmt-with-validation
+					|
+					 __ employee-mgmt-with-jdbc
+					|
+					 __ employee-mgmt-with-impexp
+					|
+					 __ employee-mgmt-with-stats
 				|
 				|__springcore
 					|
