@@ -4,4 +4,11 @@ ASSIGNMENT 03: Enhance Employee Management Application to perform CRUD operation
 ASSIGNMENT 04: Enhance Employee Management Application to support Import Employee details from file and Export Employee details to file
 ASSIGNMENT 05: Enhance Employee Management Application to run Import and Export functionality as separate threads with Java Concurrent API
 ASSIGNMENT 06: Enhance Employee Management Application to print employee statistics with Java 8 features
+                1) No of employees older than thirty years
+                2) List employee IDs older than thirty years
+                3) Employee count by Department
+                4) Employee count by Department ordered
+                5) Average Employee Age by Department
+                6) List Departments have more than 3 employees
+                7) List Employees starts with 'S'
 ASSIGNMENT 07: Enhance Employee Management Application to persist data into database using JDBC
