@@ -69,7 +69,7 @@ public class JdbcWithDataSourceEx {
 			pstmt.setInt(1, 2);
 			int deleteCount = pstmt.executeUpdate();
 			pstmt.close();
-			System.out.println(deleteCount + " Employee(s) updated");
+			System.out.println(deleteCount + " Employee(s) deleted");
 
 			// persist the changes
 			conn.commit();

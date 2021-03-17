@@ -51,3 +51,5 @@ TRUNCATE TABLE employee;
 #drop table
 DROP TABLE employee;
 
+#drop schema table
+DROP TABLE jdbctraining;

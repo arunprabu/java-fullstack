@@ -1,0 +1,37 @@
+
+Package
+=======
+
+com
+  |
+  |___ lowes
+          |
+		  |______ empapp
+					|
+					|_____ EmployeeMain
+					
+					|
+					|______ service
+							|
+							|_____ EmployeeService
+							|
+							|_____ EmployeeServiceColImpl
+							|
+							|_____ EmployeeServiceArrImpl
+								
+					|
+					|_______ model
+							   |
+							   |____ Employee
+					|
+					|_______ dao
+							  |
+							  |_____ EmployeeDao
+							  |
+							  |_____ EmployeeDaoJdbcImpl
+					|
+					|_______ exception
+							  |
+							  |_____ EmployeeException
+					|
+					|_______ util
