@@ -22,7 +22,7 @@ public class EmployeeValidationMain {
 //		return validator.test(emp);
 //	}
 
-	public static boolean validate(Employee<Double> emp, Predicate<Employee<Double>> validator) {
+	public static boolean validate(Employee emp, Predicate<Employee> validator) {
 		// emp -> emp.getAge() > 0 && emp.getSalary() > 0
 		return validator.test(emp); // executes lambda expression body
 	}
@@ -33,7 +33,7 @@ public class EmployeeValidationMain {
 	}
 
 	public static void main(String[] args) {
-		Employee<Double> employee = new Employee<>(100, "Anand", 30, "Male", "Software Engineer", "Admin", 25000.0);
+		Employee employee = new Employee(100, "Anand", 30, "Male", "Software Engineer", "Admin", 25000.0);
 
 //		// Approach #1: Employee Validation with Anonymous inner class passed as method argument
 //		boolean valStatus = validate(employee, new ValidateEmployee() {
