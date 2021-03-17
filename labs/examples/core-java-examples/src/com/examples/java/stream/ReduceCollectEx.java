@@ -11,11 +11,11 @@ public class ReduceCollectEx {
 	
 	public static void main(String args[])
 	{
-		Map<Integer, Employee<Double>> employees = new HashMap<>();
-		employees.put(100, new Employee<>(100, "Anand", 35, "Male", "Sr.Developer", "IT", 50000.0));
-		employees.put(101, new Employee<>(101, "Mary", 45, "Female", "Manager", "Admin", 75000.0));
-		employees.put(102, new Employee<>(102, "John", 25, "Male", "Lead", "Admin", 25000.0));
-		employees.put(103, new Employee<>(103, "Joe", 30, "Female", "Developer", "IT", 35000.0));
+		Map<Integer, Employee> employees = new HashMap<>();
+		employees.put(100, new Employee(100, "Anand", 35, "Male", "Sr.Developer", "IT", 50000.0));
+		employees.put(101, new Employee(101, "Mary", 45, "Female", "Manager", "Admin", 75000.0));
+		employees.put(102, new Employee(102, "John", 25, "Male", "Lead", "Admin", 25000.0));
+		employees.put(103, new Employee(103, "Joe", 30, "Female", "Developer", "IT", 35000.0));
 		
 		// 
 		double totalSalary = employees.values()
