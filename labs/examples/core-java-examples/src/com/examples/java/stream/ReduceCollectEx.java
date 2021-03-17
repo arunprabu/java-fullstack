@@ -1,7 +1,11 @@
 package com.examples.java.stream;
 
+import java.util.Comparator;
+import java.util.DoubleSummaryStatistics;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import com.examples.java.oops.Employee;
@@ -15,11 +19,44 @@ public class ReduceCollectEx {
 		employees.put(100, new Employee(100, "Anand", 35, "Male", "Sr.Developer", "IT", 50000.0));
 		employees.put(101, new Employee(101, "Mary", 45, "Female", "Manager", "Admin", 75000.0));
 		employees.put(102, new Employee(102, "John", 25, "Male", "Lead", "Admin", 25000.0));
-		employees.put(103, new Employee(103, "Joe", 30, "Female", "Developer", "IT", 35000.0));
+		employees.put(103, new Employee(103, "Joe", 30, "Female", "Developer", "Admin", 35000.0));
 		
-		// 
+		// fetch list of employee ids
+		List<Integer> empIds = employees.values()
+								.stream()
+								.map(Employee::getEmpId)
+								.collect(Collectors.toList());
+		// print empIds
+		empIds.forEach(System.out::println);
+		
+		
+		// print emp ids whose age is more more 30 yrs
+		employees.values()
+			.stream()
+			//.map(Employee::getEmpId)
+			.filter(emp -> emp.getAge() > 30)
+			.map(Employee::getEmpId)
+			.collect(Collectors.toList())
+			.forEach(System.out::println);
+		
+	
+		//Approach #1: Find Total and Avg Salary
+		DoubleSummaryStatistics stats = employees.values()
+											.stream()
+											.map(Employee::getSalary)
+											.collect(Collectors.toList())
+											.stream()
+											.mapToDouble((sal) -> sal)
+											.summaryStatistics();
+		
+		System.out.println("Total Salary: " + stats.getSum());
+		System.out.println("Avg Salary: " + stats.getAverage());
+		
+		
+		//Approach #2: Find Total Salary
 		double totalSalary = employees.values()
-					.stream()
+					//.stream()
+				    .parallelStream()
 					.map(Employee::getSalary) // stream of salary
 					.reduce(0.0, (a,b) -> a.doubleValue() + b.doubleValue()).doubleValue();    // sum of salary
 		
@@ -32,6 +69,7 @@ public class ReduceCollectEx {
 					//Identity	=> Initial value or default value
 					//Accumulator => Accumulates partial output with current value
 		
+		//Approach #3: Find Avg Salary - with custom Averager
 		Averager averager = employees.values()
 							.stream()
 							.map(Employee::getSalary) // stream of salary
@@ -40,6 +78,7 @@ public class ReduceCollectEx {
 					// 185000/4 => 46250
 		System.out.println(averager.average());
 		
+		//Approach #4: Find Avg Salary - with Averaging Collectors
 		double avgSalary = employees.values()
 				.stream()
 				.collect(Collectors.averagingDouble(Employee::getSalary)).doubleValue();		
@@ -48,11 +87,19 @@ public class ReduceCollectEx {
 					// Combiner	=> Combines output of similar container into this container
 		System.out.println(avgSalary);
 		
-		
+		// Find Dept wise Employee count
 		Map<String, Long> groupByDept = 
 				employees.values()
 					.stream()
 					.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
 		System.out.println(groupByDept);
+		
+		// Find Dept wise Employee count sorted by dept
+		Map<String, Long> groupSortByDept = 
+				employees.values()
+					.stream()
+					.sorted(Comparator.comparing(Employee::getDepartment))
+					.collect(Collectors.groupingBy(Employee::getDepartment, TreeMap::new, Collectors.counting()));
+		System.out.println(groupSortByDept);
 	}
 }
