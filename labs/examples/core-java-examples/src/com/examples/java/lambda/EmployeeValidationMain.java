@@ -14,11 +14,11 @@ public class EmployeeValidationMain {
 	// can be qualified as functional interface as it is performing single task
 //	@FunctionalInterface
 //	public interface ValidateEmployee {
-//		public boolean test(Employee<Double> emp);
+//		public boolean test(Employee emp);
 //	}
 
 	// Validate method definition
-//	public static boolean validate(Employee<Double> emp, ValidateEmployee validator) {
+//	public static boolean validate(Employee emp, ValidateEmployee validator) {
 //		return validator.test(emp);
 //	}
 
@@ -35,31 +35,31 @@ public class EmployeeValidationMain {
 	public static void main(String[] args) {
 		Employee employee = new Employee(100, "Anand", 30, "Male", "Software Engineer", "Admin", 25000.0);
 
-//		// Approach #1: Employee Validation with Anonymous inner class passed as method argument
+		// Approach #1: Employee Validation with Anonymous inner class passed as method argument
 //		boolean valStatus = validate(employee, new ValidateEmployee() {
 //			
 //			@Override
-//			public boolean test(Employee<Double> emp) {
+//			public boolean test(Employee emp) {
 //				return emp.getAge() > 0 && emp.getSalary() > 0 && (emp.getDepartment().equals("Admin") || emp.getDepartment().equals("IT"));
 //			}
 //		});		
 
-//		// Approach #2: Employee Validation with Anonymous inner class assigned to local variable
+		// Approach #2: Employee Validation with Anonymous inner class assigned to local variable
 //		ValidateEmployee validator = new ValidateEmployee() {
 //
 //			@Override
-//			public boolean test(Employee<Double> emp) {
+//			public boolean test(Employee emp) {
 //				return emp.getAge() > 0 && emp.getSalary() > 0;
 //			}
 //		};		
 
 		// Approach #3: Employee Validation with Lambda Expression assigned to local
 		// variable
-//		ValidateEmployee validator = (Employee<Double> emp) -> {return emp.getAge() > 0 && emp.getSalary() > 0;};
+//		ValidateEmployee validator = (Employee emp) -> {return emp.getAge() > 0 && emp.getSalary() > 0;};
 //		boolean valStatus = validate(employee, validator);
 
 		// Employee Validation with standard Lambda Expression assigned to local variable
-		//Predicate<Employee<Double>> validator = (Employee<Double> emp) -> {return emp.getAge() > 0 && emp.getSalary() > 0;};
+//		Predicate<Employee> validator = (Employee emp) -> {return emp.getAge() > 0 && emp.getSalary() > 0;};
 		
 		// Approach #4: Employee Validation with Lambda Expression passing as method
 		// argument
