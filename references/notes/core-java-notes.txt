@@ -282,9 +282,22 @@ Nested/Inner Classes
 		- Local Inner Class -> declare an inner class within the body of a method
 		- Anonymous Inner Class -> declare an inner class within the body of a method without naming the class
 	
+Functional Programming
+	- data immutable
+	- computations are done by evaluation of functions
+	- returning values instead modifying
+	- functions can be passed as arguments
+	- assign functions to variables
+	
 Lambda Expressions
 	- Lambda expressions enables to treat functionality as method argument, or code as data.
-	- Functional Interface -> A functional interface is any interface that contains only one abstract method.
+	- Functional Interface
+		- performs single task
+		- has only one abstract method
+	- Consumer - One argument, no return values
+	- Supplier - No argument and only return a value
+	- Function - Take an argument and return a value
+	- Predicate - Take an argument and always return boolean
 	
 Stream APIs
 	- Streaming Source
@@ -305,14 +318,22 @@ Multi-threading and Concurrency API
 		- Extend Thread
 		- Implement Runnable
 		- Implement Callable
+		
+	- Thread Lifecycle
+		- New -> Runnable -> Running -> Sleep -> Runnable
+		- New -> Runnable -> Running -> Waiting -> Notify -> Runnable
+		- New -> Runnable -> Running -> Blocked -> Acquire Lock -> Runnable
+		- New -> Runnable -> Running -> Dead
+	
 	- Thread Constructs
-		- sleep
-		- interrupt
-		- join
-		- yield
-		- wait
-		- notify
-		- notifyall
+		- sleep - holds lock and put the thread to sleep state until the time elapses
+		- wait - release locks and put the thread to wait state until receive notification
+		- notify - sends notification to the waiting threads
+		- notifyAll - sends notification to all the waiting threads
+		- join - makes parent thread to wait until child thread terminates
+		- interrupt - interrupts the thread execution
+		- yield - gives the chance for other threads to runs
+		- volatile - transient shared variable		
 		- synchronized <- Thread Interference, Memory Inconsistency
 		- Thread Synchronization
 		- Thread Liveness
@@ -339,6 +360,28 @@ Java I/O
 		- Flushing Buffer Stream to sync write with native file sys
 	- Scanning and Formatting
 	- I/O from command line
+	
+	- File I/O
+		ByteStream 
+			- FileInputStream
+			- FileOutputStram
+		CharacterStream
+			- FileReader
+			- FilerWriter
+		BufferedStream
+			- BufferedReader
+			- BufferedWriter
+			- BufferedInputStream
+			- BufferedOutputStream
+			
+	- Console I/O
+		Scanner
+		Console
+		BufferedReader
+		
+	- Serialization / De-serialization
+		ObjectOutputStream
+		ObjectInputStream
 	
 JDBC API
 	- Specification to access RDBMS from Java

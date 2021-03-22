@@ -98,7 +98,7 @@ public class Employee extends Person implements Appraisable {
 	}
 
 	public String toString() {
-		return String.valueOf(this.empId) + " " + String.valueOf(this.getName() + " " + String.valueOf(this.getAge()));
+		return String.valueOf(this.empId) + " " + String.valueOf(this.getName() + " " + String.valueOf(this.getAge())) + " " + this.getDepartment() + " " + this.getSalary();
 	}
 
 }

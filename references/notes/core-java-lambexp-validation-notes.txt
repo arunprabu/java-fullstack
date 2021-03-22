@@ -1,0 +1,38 @@
+// Step 1. Defining interface
+public interface ValidateEmployee {
+	public boolean check(Employee employee);
+}
+
+// Step 2. Provide implementation for validate
+boolean validate(ValidateEmployee validator, Employee employee)
+{
+	return validator.check(employee);
+}
+
+// Step 3. Capture input from user
+
+// Step 4. Invoking validate method with value captured from user
+// invoke validate method from main after capturing the age
+boolean valStatus = validate(new ValidateEmployee() {
+						public boolean check(Employee emp) {
+							return emp.getAge > 0 && emp.getSalary > 0 && (emp.getDept().equals("IT") || emp.getDept().equals("Admin"));
+						}
+					}, employee);
+
+// Step 5: Check status and print error message					
+if(!valStatus)
+{
+	System.out.println("Invalid Employee details entered");
+}
+
+// Step 6: Add/Save Employee if no error
+
+					
+
+
+
+
+
+			
+			
+			
