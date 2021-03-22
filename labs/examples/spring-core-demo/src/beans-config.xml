@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-init-method="init" default-destroy-method="destroy" xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bmw" class="com.examples.spring.Car">   
+    
+    	<!-- <constructor-arg name="engine" ref="vtix" /> -->
+        <property name="color" value="White" />
+        <property name="manufacturer" value="BMW" />
+        <property name="model" value="XA" />
+        <property name="engine" ref="vti"/>        
+    </bean>
+
+    <bean id="vti" class="com.examples.spring.Engine">
+		<property name="capacity" value="2000" />
+        <property name="noOfCynclinders" value="4" />
+        <property name="torque" value="10" />        
+    </bean>
+    
+    <bean id="vtix" class="com.examples.spring.Engine">
+		<property name="capacity" value="4000" />
+        <property name="noOfCynclinders" value="4" />
+        <property name="torque" value="20" />        
+    </bean>
+    
+    <bean id="vtiz" class="com.examples.spring.Engine">
+		<property name="capacity" value="6000" />
+        <property name="noOfCynclinders" value="4" />
+        <property name="torque" value="20" />        
+    </bean>           
+
+    <!-- more bean definitions go here -->
+    
+  <!--   <bean id="genericBeanPostProcessor" class="com.examples.spring.GenericBeanPostProcessor" /> -->
+
+</beans>
