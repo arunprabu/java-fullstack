@@ -1,0 +1,28 @@
+EmployeeManagerApp
+
+Employee
+=========
+int id;
+String name;
+Address address;
+LocalDate joiningDate;
+List skills;
+boolean isActive;
+
+Address
+========
+String street;
+String city;
+String country;
+int pinCode;
+
+AppMain
+=======
+Print Employee Details
+
+EmpId: 100
+Name: Piyush
+Address: Gandhi Street, Bengaluru, India, 560102
+DOJ: 02-Jul-2019
+Skills: HTML/CSS, Javascript, Java, Spring
+Active: true

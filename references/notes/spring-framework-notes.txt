@@ -1,0 +1,94 @@
+Framework Overview
+Spring History
+	- Rod Johnson - 2002
+	- v1.0 2003
+	- 2.0 -> XML Configuration
+	- 2.5 -> Annotation based configuration
+	- 3.2 -> Java Configuration + Java 5
+	- 4.0 -> Java 8 (2013 - 2018)
+	- 5.1 -> Reactive Programming (2017)
+	- 5.3.5 -> Latest version
+	
+	- SpringSource
+	- VMWare <- SpringSource (2008)
+	- EMC <- VMWare
+	- JV by VMWare + EMC + GE -> Pivotal
+	- Dell <- EMC <- Pivotal
+	
+Spring Framework
+	- Architecture and Components
+	- Inversion of Control / Dependency Injection
+	- Project Setup
+	- Hello World Example
+	- Maven Project
+	
+	- Steps involved to create spring app
+	
+		STEP #1: Add spring jars into classpath
+		STEP #2: Create beans config file and provide the bean definitions
+		STEP #3 Create main program
+		STEP #4 Create container by providing config file
+		STEP #5 Access the beans from container
+		
+	- Steps involved to create spring app with Maven
+	
+		STEP #1: Create Maven project
+		STEP #2: Add dependency in the POM file
+		STEP #3: Create beans config file and provide the bean definitions
+		STEP #4 Create main program
+		STEP #5 Create container by providing config file
+		STEP #6 Access the beans from container	
+	
+Spring Core	
+	- IoC Instantiation / Create Containers
+		- BeanFactory
+		- ApplicationContext
+		
+		
+	- Bean Instantiation
+		- Constructor
+		- Static Factory
+		- Instance Factory
+		
+	- Injection
+		- Constructor
+		- Setter
+		
+	- Bean Scopes
+		- Singleton
+		- Prototype
+		- Request
+		- Session
+		- Application
+	- Bean Life-Cyle Methods
+		- Init
+		- Destroy
+	- Lazy Init
+	- Autowire
+		- byName
+		- byType
+		- constructor
+		
+	- Annotation Based Configuration
+		- @Component
+		- @ComponentScan
+		- @Autowired
+		- @Primary
+		- @Qualifier
+		- @Scope
+		- @Lazy
+		- @DependsOn
+		- @Required
+		- @Value
+	
+	- Java Based Configuration
+		- @Configuration
+		- @Bean
+		- @Autowired
+		- @Primary
+		- @Qualifier
+		- @Scope
+		- @Lazy
+		- @DependsOn
+		- @Required
+		- @Value		
