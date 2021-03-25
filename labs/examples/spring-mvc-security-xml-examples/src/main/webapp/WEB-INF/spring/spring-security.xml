@@ -1,0 +1,40 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- Security Configuration for HTTP request -->
+	<http auto-config="false">
+		<!-- Authorization -->
+		<intercept-url pattern="/login*" access="permitAll" />
+		<intercept-url pattern="/**" access="authenticated" />
+
+		<!--  Custom Login Page -->
+		<form-login login-page="/login" default-target-url="/"
+			authentication-failure-url="/login?error"
+			username-parameter="username" password-parameter="password" />
+
+		<!-- Custom Logout -->
+		<logout logout-success-url="/login?logout" />
+
+		<!-- Enable CSRF -->
+		<!-- <csrf disabled="false" /> -->
+	</http>
+
+	<!-- Authentication Manager Configuration -->
+	<authentication-manager>
+		<!-- In-Memory Auth Provider -->
+		<authentication-provider>
+			<user-service>
+				<user name="user" password="{noop}password"
+					authorities="ROLE_USER" />
+				<user name="admin" password="{noop}admin"
+					authorities="ROLE_ADMIN" />					
+			</user-service>
+		</authentication-provider>
+		<!--  JDBC Auth Provider -->
+		<!-- LDAP Auth Provider -->
+	</authentication-manager>
+
+</b:beans>
