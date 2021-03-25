@@ -31,16 +31,16 @@ lowes_javabootcamp
 				|
 				|__springcore
 					|
-					|___employee-mgmt-app03
+					|___employee-mgmt-with-spring-core
 				|
 				|__sprngmvc
 					|
-					|__employee-mgmt-app04
+					|__employee-mgmt-with-spring-mvc
 				|
 				|__springrest
 					|
-					|__employee-mgmt-app05
+					|__employee-mgmt-with-spring-rest
 				|
 				|__springboot
 					|
-					|__employee-mgmt-app06
+					|__employee-mgmt-with-spring-boot
