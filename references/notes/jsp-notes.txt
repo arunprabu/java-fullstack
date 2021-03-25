@@ -1,0 +1,31 @@
+JSP Overview
+JSP Architecture
+
+Scripting Tags
+	- Declaration
+	- Scriptlet
+	- Expression
+	
+JSP Directives
+	- Page
+	- Include
+	- Taglib
+
+JSP Actions
+	- UseBean
+	- SetProperty
+	- GetProperty
+	- Include
+	- Forward
+	- Param
+
+Implicit Objects
+	- pageContext
+	- request
+	- response
+	- session
+	- application
+	- out
+	- exception
+	
+JSTL

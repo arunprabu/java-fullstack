@@ -60,15 +60,20 @@ Spring Core
 		- Request
 		- Session
 		- Application
+	
+		
 	- Bean Life-Cyle Methods
 		- Init
 		- Destroy
+		
 	- Lazy Init
+
+		
 	- Autowire
 		- byName
 		- byType
 		- constructor
-		
+
 	- Annotation Based Configuration
 		- @Component
 		- @ComponentScan

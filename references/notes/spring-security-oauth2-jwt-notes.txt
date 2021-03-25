@@ -1,0 +1,24 @@
+GETTING TOKEN
+==============
+POST http://localhost:8080/oauth/token
+
+Authorization:
+Type		: Basic Auth
+Username	: empmgmtapp
+Password	: password
+[Update Request]
+
+Request Header:
+Authorization: Basic <base64encodevalue(empmgmtapp:password)>
+Content-Type: application/x-www-form-urlencoded
+
+grant_type	: password
+username	: admin
+password	: password
+
+GETTING EMPLOYEES
+=================
+GET http://localhost:8080/employees
+
+Request Header:
+Authorization: Bearer <jwt-token>

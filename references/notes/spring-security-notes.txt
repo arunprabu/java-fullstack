@@ -1,0 +1,60 @@
+Intro to Security
+	- Layer wise security
+	- Application security
+	- Authentication
+		- Form based
+		- Database based
+		- LDAP based
+		- Single Sign-on
+		    - OpenID
+			- Siteminder
+			- OAuth 2
+			- SAML
+		- Kerberos
+	- Authorization
+		- Fine grained control on the resources
+		- RBAC - Role Based Access Control
+		- ACL
+		
+	
+Spring Security
+	- 2003
+	- Acegi Security System for Spring
+
+	- Modules
+		- spring-security-core
+		- spring-security-web
+		- spring-security-config
+		- spring-security-ldap
+		- spring-security-oauth2
+		- spring-security-acl
+		- spring-security-cas
+		- spring-security-openid
+		
+pom.xml
+	- spring-security-web
+	- spring-security-config
+	
+Principal - User identity details
+   - username
+   - userrole
+   - permission checks
+
+Course Outline
+---------------  
+Spring Security Overview
+Spring Security Modules
+Spring MVC + Spring Security integration
+Filtering and Intercepting web requests
+Writing simple Security Configuration
+Selecting User Detail service
+Working with an in-memory user
+Authenticating Users
+Adding a custom login page
+Logging Out
+
+Upgrade the Form validation to latest version
+Writing Security Configuration using Java Configuration
+CSRF (Cross Site Request Forgery)
+Spring Security samples for various features -> Setup samples on IDE
+Add Spring Security support to Employee CRUD app	

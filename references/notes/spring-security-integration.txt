@@ -1,0 +1,7 @@
+Spring Security Integration
+===========================
+1) Create Spring MVC Project
+2) Add Maven Dependencies -> spring-security-web, spring-security-config 
+3) Create spring-security.xml -> contains security configuration details
+4) Update web.xml to load spring-security.xml during application startup
+5) Add springSecurityFilterChain filter in web.xml 

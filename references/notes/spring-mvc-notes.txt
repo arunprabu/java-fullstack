@@ -1,0 +1,63 @@
+- Web Technologies Overview
+	- HTTP
+	- HTML/CSS/Javascript
+- Java EE Overview
+	- Servlet
+	- JSP
+- Why Spring MVC Framework
+	- Request Flow
+	
+	- Front Controller - DispatcherServlet
+	- Handler Mapping
+		- @RequestMapping
+			- Path
+			- Value
+			- HttpMethod
+			- Consumes
+			- Produces
+			- Name
+	- Controller
+		- @Controller
+		- @RequestParam 			
+		- @RequestHeader
+		- @CookieValue
+		- @PathVariable
+	- Model
+		- @ModelAttribute
+		- @SessionAttributes
+		- Model
+		- ModelAndView
+		- ModelMap
+	- View Resolver
+		- UrlBasedViewResolver
+		- ResourceBundleViewResolver
+		- XmlViewResolver
+	- View
+		- JSP/JSTL views
+		- Velocity/Thymeleaf
+		- PDF, Excel
+		- Spring Form Tags
+	- i18n (Internationalization)
+	
+	- Creating Forms with various controls
+	- Form validation
+	
+	- Exception Handling
+	- Session Management
+	
+	- Project Structure
+		- WAR (Web Application Archive)
+			- WEB-INF
+				- web.xml				
+					- entry point for web app. boot straps with all configs
+				- appServlet-servlet.xml [if no config path mentioned]
+				- spring
+					- root-context.xml
+					- appServlet
+						- servlet-context.xml
+				- classes
+					- class files and config files
+				- views
+					- html/jsp pages
+				- lib
+					- all dependency libraries
