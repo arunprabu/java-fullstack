@@ -58,8 +58,7 @@ public class GreetingService {
 
 	@RequestMapping(value = "/greetings/{messageId}", method = RequestMethod.PUT)
 	public Map<String, String> putGreetingWithPathVariable(@RequestBody Map<String, String> greeting,
-			@PathVariable String messageId, @MatrixVariable(required = false) String msgType,
-			@MatrixVariable String id) {
+			@PathVariable String messageId, @MatrixVariable(required = false) String msgType) {
 		greeting.put(messageId, "PUT collection mapping with path variable example");
 		if (msgType != null) {
 			greeting.put(msgType, "Testing");

@@ -1,0 +1,206 @@
+{
+	"variables": [],
+	"info": {
+		"name": "REST Labs",
+		"_postman_id": "66cba1f5-7310-9787-8f63-41e6256256ee",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Greeting Message",
+			"request": {
+				"url": "http://localhost:8080/spring-rest-examples/greetings",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET Greeting Message with req parameter",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/spring-rest-examples/greetings?msg=Hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spring-rest-examples",
+						"greetings"
+					],
+					"query": [
+						{
+							"key": "msg",
+							"value": "Hello",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST Greeeting Message - Plain Text",
+			"request": {
+				"url": "http://localhost:8080/spring-rest-examples/greetings",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "Plain text POST example"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST Greeeting Message - JSON Object Mapping",
+			"request": {
+				"url": "http://localhost:8080/spring-rest-examples/greetings",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"Hello World - POST object mapping example\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST Greeeting Message - JSON Collection Mapping",
+			"request": {
+				"url": "http://localhost:8080/spring-rest-examples/greetings/collection",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Hello World\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST Greeeting Message - JSON Entity Mapping",
+			"request": {
+				"url": "http://localhost:8080/spring-rest-examples/greetings/entity",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Hello World\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Greeeting Message with ID as path variable",
+			"request": {
+				"url": "http://localhost:8080/spring-rest-examples/greetings/100",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Hello World\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Greeeting Message with ID as matrix variable",
+			"request": {
+				"url": "http://localhost:8080/greetings/123;msgType=info",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Hello World\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST Greeeting Message - XML Object Mapping",
+			"request": {
+				"url": "http://localhost:8080/spring-rest-examples/greetings",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<greeting>\n    <message type=\"special\">Hello World!</message>\n</greeting>"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
