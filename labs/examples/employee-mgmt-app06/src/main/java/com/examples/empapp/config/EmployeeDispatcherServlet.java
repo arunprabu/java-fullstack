@@ -1,4 +1,4 @@
-package com.examples.spring.web.mvc;
+package com.examples.empapp.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,14 +9,14 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 @Configuration
-public class CustomDispatcherServlet implements WebApplicationInitializer {
+public class EmployeeDispatcherServlet implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
 
         AnnotationConfigWebApplicationContext dispatcherServletContext = new AnnotationConfigWebApplicationContext();
 
-        dispatcherServletContext.register(CustomDispatcherConfig.class);
+        dispatcherServletContext.register(EmployeeConfig.class);
 
         DispatcherServlet dispatcherServlet = new DispatcherServlet(dispatcherServletContext);
 

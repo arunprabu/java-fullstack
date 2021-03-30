@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<div id="demo">
+
+		<h2>Employee App - Create Employee</h2>
+
+		<button type="button" onclick="loadDoc('http://localhost:8080/employee-mgmt-app06/employees', myFunction)">Create Employee</button>
+	</div>
+	
+	<div id="results">
+	</div>		
+	
+
+	<script>
+		function loadDoc(url, cFunction) {
+			var xhttp;
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				console.log(this.readyState + ' ' + this.status);
+				if (this.readyState == 4 && this.status == 200) {
+					cFunction(this);
+				}
+			};
+			xhttp.open("POST", url, true);
+			xhttp.setRequestHeader("Content-type", "application/json");
+			xhttp.send("{\"name\":\"Anil\",\"age\": 23,\"designation\": \"Lead\",\"department\": \"IT\",\"country\": \"India\"}");			
+		}
+		function myFunction(xhttp) {
+			console.log(xhttp.responseText);
+			document.getElementById("results").innerHTML = xhttp.responseText;
+		}
+	</script>
+</body>
+</html>
