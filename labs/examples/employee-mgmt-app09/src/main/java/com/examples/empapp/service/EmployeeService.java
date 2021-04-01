@@ -28,7 +28,7 @@ public class EmployeeService {
 	}
 
 	public Employee get(int id) {
-		return employeeRepo.getOne(id);
+		return employeeRepo.findById(id).get();
 	}
 
 	public List<Employee> getAll() {
