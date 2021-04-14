@@ -29,8 +29,8 @@ public class ProductServiceTests {
 	@Autowired
 	ProductService productService;
 
-	@MockBean
-	ProductRepository productRepo;
+//	@MockBean
+//	ProductRepository productRepo;
 
 	@BeforeAll
 	public static void init() {
@@ -48,7 +48,6 @@ public class ProductServiceTests {
 
 	@BeforeEach
 	public void setup() {
-		System.out.println("Test data initialization at each test case level..");
 		// Initialize Test data
 		Product mobile = new Product();
 		mobile.setId("1");
@@ -69,7 +68,6 @@ public class ProductServiceTests {
 
 	@AfterEach
 	public void cleanup() {
-		System.out.println("Test data clean up at each test case level..");
 		productService.clear();
 	}
 
