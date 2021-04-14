@@ -65,7 +65,7 @@ public class ProductServiceController {
    }
    
    @PostMapping
-   public ResponseEntity<Object> createProduct(@RequestBody Product product)  {
+   public ResponseEntity<String> createProduct(@RequestBody Product product)  {
 	   
 //      productRepo.put(product.getId(), product);
 	   
