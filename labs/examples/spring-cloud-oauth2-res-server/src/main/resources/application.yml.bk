@@ -1,0 +1,8 @@
+security:
+  oauth2:
+    client:
+      clientId: testClient
+      clientSecret: testSecret
+    resource:
+      token-info-uri: http://localhost:9000/oauth/check_token   
+      

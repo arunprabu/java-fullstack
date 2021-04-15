@@ -1,0 +1,17 @@
+security:
+  oauth2:
+    client:
+      clientId: 9c1cff349f94e414eac9
+      clientSecret: 02d76f88eaede9f42a97cd37ca75a6b7237c7120
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+    resource:
+      userInfoUri: https://api.github.com/user
+
+#    client:
+#      clientId: 81xd0l8r6j57c8
+#      clientSecret: 42ejx1UdmXvVwCKc
+#      accessTokenUri: https://www.linkedin.com/oauth/v2/accessToken
+#      userAuthorizationUri: https://www.linkedin.com/oauth/v2/authorization
+#    resource:
+#     userInfoUri: https://api.linkedin.com/v1/people
