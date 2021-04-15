@@ -1,0 +1,24 @@
+#Docker stack and swarm commands
+docker swarm init --advertise-addr=192.168.99.100
+docker stack deploy -c docker-compose.yml dockerswarmdemo
+docker service ls
+docker stack services dockerswarmdemo
+docker container ls -q
+docker stack ps dockerswarmdemo
+docker service scale dockerswarmdemo_web=4
+docker stack rm dockerswarmdemo
+docker swarm leave --force
+
+
+
+
+##Sample output of 'docker swarm init'
+D:\Training\reactive_microservices\labs\examples\spring-boot-docker-compose-ex>docker swarm init --advertise-addr=192.168.99.100
+Swarm initialized: current node (pjyxwj722tvckiogo2qgqbq47) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-5hjirtjmtbyo529u3hl7e3ts5ma2rtmwie3h6ultad3ja7qtje-ao6jt7fl7wv5xtbx3uja893w0 192.168.99.100:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+

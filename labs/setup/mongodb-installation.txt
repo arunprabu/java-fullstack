@@ -1,0 +1,15 @@
+1) Download MongoDB - https://www.mongodb.com/download-center/community
+2) Extract MongoDB to local drive e.g: C:\Program Files\MongoDB\server\4.2
+3) Create mongod.cfg file and place it under <MONGO_HOME>\config
+-----------------------------------------------------------------
+	systemLog:
+		destination: file
+		path: C:\Program Files\MongoDB\Server\4.2\log\mongodb.log
+	storage:
+		dbPath: C:\Program Files\MongoDB\Server\4.2\data\db
+------------------------------------------------------------------
+4) Create 'data' directory under <MONGO_HOME>\config
+5) Open command prompt as administrator and navigate to <MONGO_HOME>\bin
+6) Start Mongo Server > mongod.exe --config="C:\Program Files\MongoDB\Server\4.2\config\mongod.cfg"
+7) Open another command prompt and navigate to <MONGO_HOME>\bin and open Mongo shell > mongo.exe
+	

@@ -1,0 +1,8 @@
+STEP 1: Download Jenkins war file (https://jenkins.io/download/)
+STEP 2: Open up a terminal in the download directory
+STEP 3: Run java -jar jenkins.war --httpPort=8080
+STEP 4: Browse to http://localhost:8080
+STEP 5: Follow the instructions to complete the installation
+
+NOTE: Git Bash should be installed in Windows and 
+	  add '%GIT_HOME%\usr\bin' to 'Path' variable to access 'sh' commands

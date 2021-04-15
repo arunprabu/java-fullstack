@@ -1,0 +1,10 @@
+STEP 1: Download Erlang for Windows and RabbitMQ for Windows - https://www.rabbitmq.com/install-windows.html
+STEP 2: Run otp_win64_22.0.exe as Adminstrator
+STEP 3: Run rabbitmq-server-3.7.16.exe as Administrator
+STEP 4: Open Command Prompt and Navigate to %RABBITMQ_HOME%\sbin e.g:> cd "C:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.16\sbin"
+STEP 5: Enable Management Plugin :> rabbitmq_plugins enable rabbitmq_management
+STEP 6: Open Browser and enter "http://localhost:15672"
+STEP 7: Enter default credentails to login.
+		Username: guest
+		Password: guest
+STEP 8: GOTO Windows Services to START/STOP RabbitMQ Service. AMQP Port: 5672

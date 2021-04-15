@@ -1,0 +1,56 @@
+#Dockerize Registry Service
+${PROJECT_HOME}/labs/examples/shopping-cart-registry
+#Linux/Mac
+chmod +x mvnw
+./mvnw clean install -DskipTests
+docker build -t scart/registry-service:latest .
+#Windows
+mvnw clean install -DskipTests
+docker build -t scart/registry-service:latest .
+
+#Dockerize Product Service
+${PROJECT_HOME}/labs/examples/shopping-cart-product-service
+#Linux/Mac
+chmod +x mvnw
+./mvnw clean install -DskipTests
+docker build -t scart/product-service:latest .
+#Windows
+mvnw clean install -DskipTests
+docker build -t scart/product-service:latest .
+
+#Dockerize Customer Service
+${PROJECT_HOME}/labs/examples/shopping-cart-customer-service
+#Linux/Mac
+chmod +x mvnw
+./mvnw clean install -DskipTests
+docker build -t scart/customer-service:latest .
+#Windows
+mvnw clean install -DskipTests
+docker build -t scart/customer-service:latest .
+
+#Dockerize Order Service
+${PROJECT_HOME}/labs/examples/shopping-cart-order-service
+#Linux/Mac
+chmod +x mvnw
+./mvnw clean install -DskipTests
+docker build -t scart/order-service:latest .
+#Windows
+mvnw clean install -DskipTests
+docker build -t scart/order-service:latest .
+
+#Dockerize Gateway Service
+${PROJECT_HOME}/labs/examples/shopping-cart-gateway
+#Linux/Mac
+chmod +x mvnw
+./mvnw clean install -DskipTests
+docker build -t scart/gateway-service:latest .
+#Windows
+mvnw clean install -DskipTests
+docker build -t scart/gateway-service:latest .
+
+#Run docker containers
+docker run -d --name=registry-service -p 8761:8761 scart/registry-service
+docker run -d --name=product-service -p 8091:8091 -e "REGISTRY_SERVER_HOST=192.168.99.100" scart/product-service
+docker run -d --name=customer-service -p 8092:8092 -e "REGISTRY_SERVER_HOST=192.168.99.100" -e "KAFKA_BOOTSTRAP_SERVERS=192.168.99.100:9092" scart/customer-service
+docker run -d --name=order-service -p 8093:8093 -e "REGISTRY_SERVER_HOST=192.168.99.100" -e "KAFKA_BOOTSTRAP_SERVERS=192.168.99.100:9092" scart/order-service
+docker run -d --name=gateway-service -p 8111:8111 -e "REGISTRY_SERVER_HOST=192.168.99.100" scart/gateway-service

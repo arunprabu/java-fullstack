@@ -1,0 +1,90 @@
+mac
+===
+Follow steps mentioned in the below link.
+https://kubernetes.io/docs/tasks/tools/install-minikube/
+
+windows
+=======
+STEP 1: Download kubectl from web -> https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/windows/amd64/kubectl.exe
+STEP 2: Download minikube from web -> https://github.com/kubernetes/minikube/releases
+STEP 3: Create local directory structure - KUBERNETES_HOME e.g: C:/Program Files/Kubernetes
+STEP 4: Copy the downloaded kubectl.exe and minikube-windows-amd64.exe to KUBERNETES_HOME
+STEP 5: Rename minikube-windows-amd64.exe to minikube.exe
+STEP 6: Configure environment variables to reference kubernetes installation directory
+		KUBERNETES_HOME = C:/Program Files/Kubernetes
+		Path = %Path%;%KUBERNETES_HOME%
+STEP 7: Open command prompt in Administrator mode and check kubectl and minikube versions
+		> kubectl version
+		> minikube version
+STEP 8: Open Windows Powershell in Administrator
+STEP 9: Create Virtual Switch - https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines
+STEP 10: > minikube start --vm-driver=hyperv --hyperv-virtual-switch="SWITCH NAME"  	(Windows 10)
+          minikube start --vm-driver=virtualbox --v=7 --alsologtostderr				(Windows 7)
+STEP 11:> minikube status			(Status should be running)
+STEP 12:> kubectl cluster-info		(Cluster URL be shown)
+
+*nix (ubuntu)
+=====
+STEP 1: Download kubectl binary from web
+		curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+		
+STEP 2: Make the kubectl binary executable
+		chmod +x ./kubectl
+		
+STEP 3: Move the kubectl binary in to your PATH
+		sudo mv ./kubectl /usr/local/bin/kubectl
+		
+STEP 4: Verify kubectl version
+		kubectl version --client
+		
+STEP 5: Download minikube binary from web
+		curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+		
+STEP 6: Make the kubectl binary executable
+		chmod +x ./minikube		
+		
+STEP 7: Install minikube binary in to your PATH
+		sudo mkdir -p /usr/local/bin/
+		sudo install minikube /usr/local/bin/
+
+STEP 8: Verify minikube version
+		sudo minikube version
+
+STEP 9: Install conntrack util (Linux kernel's networking stack) => if get error while starting minikube
+		sudo apt-get install conntrack
+		
+STEP 10: Start minikube
+		sudo minikube start --vm-driver=none --alsologtostderr
+		
+STEP 11a: Start minikube dashboard and copy URL (Keep the terminal open)
+		sudo minikube dashboard --url
+		
+STEP 11b: Enable minikube dashboard remote access (default port = 8001). Required for AWS.
+		sudo kubectl proxy --address='0.0.0.0' --disable-filter=true &		
+
+STEP 12: Open Browser and access the dashboard URL
+
+Known Issues and Fixes
+======================
+ISSUE #1
+========
+Dockerhub connectivity issue has been seen in Mac OS with hyperkit VM. You will not see this issue, if you use other VMs like VirtualBox or FusionBox. Mac OS reserves the port 53 for dnscrypt, which is conflicted with one of the port used by hyperkit.
+
+Error response from daemon: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 192.168.64.1:53: read udp 192.168.64.15:60324->192.168.64.1:53: read: connection refused
+You can check all the processes running on 53 port using the following command.
+
+FIX #1:
+=======
+minikube start --vm-driver=hyperkit  --hyperkit-vpnkit-sock=/Users/<<username>>/Library/Containers/com.docker.docker/Data/vpnkit.eth.sock
+
+ISSUE #2: (Getting below error in Mac while starting Minikube)
+=========
+This VM is having trouble accessing https://k8s.gcr.io
+To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+
+FIX #2:
+=====
+minikube ssh
+	sudo vi /etc/systemd/network/10-eth1.network add DNS=8.8.8.8 under [Network]
+	sudo vi /etc/systemd/network/20-dhcp.network add DNS=8.8.8.8 under [Network]
+	sudo systemctl restart systemd-networkd

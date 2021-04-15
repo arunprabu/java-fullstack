@@ -1,0 +1,94 @@
+version: '3.3'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    restart: always
+    ports:
+      - 2181:2181
+    networks:
+      - scart  
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    restart: always
+    ports:
+      - 9092:9092
+    depends_on:
+      - zookeeper
+    links:
+      - zookeeper:zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 192.168.99.100
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "ORDER_CREATED:1:1, ORDER_APPROVED:1:1, ORDER_REJECTED:1:1"
+    networks:
+      - scart  
+  
+  registry-service:
+      image: dockrtraining/registry-service
+      container_name: registry-service
+      restart: always 
+      ports:
+        - 8761:8761
+      networks:
+      - scart  
+  
+  gateway-service:
+      image: dockrtraining/gateway-service
+      container_name: gateway-service
+      restart: always 
+      ports:
+        - 8111:8111 
+      depends_on:
+      - registry-service
+      networks:
+      - scart
+      environment:
+        REGISTRY_SERVER_HOST: registry-service
+  
+  customer-service:
+      image: dockrtraining/customer-service
+      container_name: customer-service
+      restart: always 
+      ports:
+        - 8092:8092 
+      depends_on:
+      - gateway-service
+      networks:
+      - scart  
+      environment:
+        REGISTRY_SERVER_HOST: registry-service
+        KAFKA_BOOTSTRAP_SERVERS:  kafka:9092    
+  
+  order-service:
+      image: dockrtraining/order-service
+      container_name: order-service
+      restart: always 
+      ports:
+        - 8093:8093  
+      depends_on:
+      - gateway-service
+      networks:
+      - scart  
+      environment:
+        REGISTRY_SERVER_HOST: registry-service
+        KAFKA_BOOTSTRAP_SERVERS:  kafka:9092  
+
+  product-service:
+      image: dockrtraining/product-service
+      container_name: product-service
+      restart: always 
+      ports:
+        - 8091:8091 
+      depends_on:
+      - gateway-service
+      networks:
+      - scart  
+      environment:
+        REGISTRY_SERVER_HOST: registry-service       
+       
+networks:
+  scart:

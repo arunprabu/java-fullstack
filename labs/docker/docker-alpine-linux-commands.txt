@@ -1,0 +1,6 @@
+docker container exec -it <container_name> bash
+
+RUN apk update && apk add bash
+RUN /bin/sh -c "apk add --no-cache bash"
+RUN apk add --no-cache bash
+apk add --no-cache busybox-extras

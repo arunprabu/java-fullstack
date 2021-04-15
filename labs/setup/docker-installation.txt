@@ -1,0 +1,61 @@
+mac
+====
+REFERENCE: https://docs.docker.com/docker-for-mac/install/
+
+STEP 1: Download Docker Desktop for Mac
+		https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+		
+STEP 2: Install and run Docker Desktop on Mac
+		Double-click Docker.dmg to open the installer, then drag the Docker icon to the Applications folder.
+		
+STEP 3: Double-click Docker.app in the Applications folder to start Docker
+		The Docker menu in the top status bar indicates that Docker Desktop is running, and accessible from a terminal
+		
+STEP 4:	Verify Docker Installation
+		Open terminal and enter below command
+		sudo docker version		(=> shows docker client and server details)
+		
+windows
+=======
+REFERENCE: https://docs.docker.com/docker-for-windows/install/
+
+STEP 1: Download Docker Desktop for Windows
+		https://hub.docker.com/editions/community/docker-ce-desktop-windows/
+		
+STEP 2: Double-click Docker Desktop Installer.exe to run the installer
+
+STEP 3: When prompted, ensure the Enable Hyper-V Windows Features option is selected on the Configuration page		
+
+STEP 4: Follow the instructions on the installation wizard to authorize the installer and proceed with the install
+		When the installation is successful, click Close to complete the installation process
+		
+STEP 5: Start Docker Desktop
+		To start Docker Desktop, search for Docker, and select Docker Desktop in the search results
+		When the whale icon in the status bar stays steady, Docker Desktop is up-and-running, and is accessible from any terminal window
+
+STEP 4:	Verify Docker Installation
+		Open command prompt and enter below command
+		docker version		(=> shows docker client and server details)		
+
+*nix (ubuntu)
+========
+REFERENCE: https://docs.docker.com/engine/install/ubuntu/
+
+STEP 1: Remove existing docker installation
+		sudo apt-get remove docker docker-engine docker.io containerd runc
+		
+STEP 2: Install pre-requisite softwares
+		sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+		
+STEP 3:	Add Docker Repo
+		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+		
+STEP 4: Setup staple repository
+		sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+		
+STEP 5: Docker Installation
+		sudo apt-get update
+		sudo apt-get install docker-ce docker-ce-cli containerd.io
+		
+STEP 6: Verify Docker Installation
+		sudo docker version		(=> shows docker client and server details)
