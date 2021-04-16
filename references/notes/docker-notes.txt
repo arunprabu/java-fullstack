@@ -1,0 +1,109 @@
+Docker
+	- Introduction
+	- Virtual Machine vs Container
+	- What is Docker
+	- Docker Architecture
+	- Docker Engine
+	- Docker Components
+		- Image		=> read only template to create containers. Build and Ship. ~JAR
+		- Container => running instance of image. Can run one or more containers from an image. Run JAR -> JVM -> mem /resources
+		- Registry (Local [/var/lib/docker] | Public (Docker Hub) | Private => Nexus | Artifactory)
+		- Docker Server (Daemon) (dockerd)
+		- Docker Client	
+			- CLI
+			- REST API
+			- SDK
+			- Plugins/Extentions
+		- Docker Compose => enables to run multiple docker containers in single unit
+		- Docker Swarm | Kubernetes	 => container management platform / orchestration platform
+		  
+	- Docker Installation and Setup
+		- Docker Desktop for Windows (10 Prof/Entp)
+		- Docker for Windows 7 => Docker Toolbox
+		- Docker for Linux
+		- Docker for Mac
+		- Docker Community Edition vs Docker Enterprise Edition
+		- Docker Enterprise sold to Mirandis (2019)
+	- Docker CLI
+		- docker basic commands
+		- docker image
+		- docker container
+			
+	- Dockerfile
+		step 1: install base os
+		step 2: install nodejs / java
+		step 3: copy application build code
+		step 4: npm start | java -jar app.jar
+		step 5: expose ports - 3000
+		
+		
+	- Build Docker Image
+	- Launch Docker Container
+	
+	- Export/Import Docker Image locally
+	- Export/Load Docker Container locally
+	
+	- Working with Public Registry
+		- Create Account in https://hub.docker.com
+		- Docker Login
+		- Tag Image and Push Image
+		- Docker Logout
+		
+	- Connect to Running Docker Container
+	- Make changes in Container and Commit
+		
+	- Eclipse Docker Tooling plugin
+	
+	- Docker Compose
+	
+	- Dockerizing microservices (ShoppingCart)
+	
+	- Docker Storage Drivers
+		- AUFS
+		- Overlay2
+		- Devicemapper
+		- Btrfs
+		- ZFS
+		 
+	- Docker Volumes
+		- bind mount	=> persist the data into host file system. source directory should be created and available.
+		- volumes		=> persist the data into docker storage area within host machine. managed by docker.
+		- tmpfs mount	=> temporarily persist data into host memory. tmpfs mount removed once container stops.
+		
+	- Docker Networking
+		- bridge	=> best when you need multiple containers to communicate on the same Docker host
+		- host		=> best when the network stack should not be isolated from the Docker host, but you want other aspects of the container to be isolated
+		- overlay	=> best when you need containers running on different Docker hosts to communicate using Swarm services
+		- macvlan	=> best when you are migrating from a VM setup or need your containers to look like physical hosts on your network, each with a unique MAC address
+		- none		=> no networking
+	
+	- Docker Linking (Deprecated)
+	
+	- Docker Swarm
+		
+	- Storage Drivers
+		
+	AUFS
+		This is a stable driver; can be used for production-ready applications.
+		It has good memory usage and is good for ensuring a smooth Docker experience for containers.
+		There is a high-write activity associated with this driver which should be considered.
+		It’s good for systems which are of Platform as a service type work.
+
+	Overlay2
+		This is a stable driver and it is in line with the main Linux kernel functionality.
+		It has a good memory usage.
+		This driver is good for testing applications in the lab. Also in production.
+		
+	Devicemapper
+		This is a stable driver; ensures a smooth Docker experience.
+		This driver is good for testing applications in the lab.
+		This driver is in line with the main Linux kernel functionality.
+
+	Btrfs
+		This driver is in line with the main Linux kernel functionality.
+		There is a high-write activity associated with this driver which should be considered.
+		This driver is good for instances where you maintain multiple build pools.
+
+	ZFS
+		This is a stable driver and it is good for testing applications in the lab.
+		It’s good for systems which are of Platform-as-a-Service type work.	

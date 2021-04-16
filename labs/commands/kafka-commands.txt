@@ -1,0 +1,81 @@
+=======================================================================================================================================================================================================
+#Kafka commands (Windows)
+bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092	
+bin\windows\kafka-topics.bat --describe --bootstrap-server localhost:9092 --topic test
+bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic test
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --group test-group
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --partition 0 --offset earliest
+bin\windows\kafka-topics.bat --alter --bootstrap-server localhost:9092 --topic test --partitions 3
+bin\windows\kafka-topics.bat --delete --bootstrap-server localhost:9092 --topic test
+
+#consumer groups
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group test-group
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --all-groups
+
+#kafka configs
+kafka-configs.bat --zookeeper localhost:2181 --describe --entity-type clients
+
+#reset offsets
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --reset-offsets --to-earliest --dry-run --group test-group --topic test
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --reset-offsets --to-earliest --execute --group test-group --topic test
+
+#delete records
+bin\windows\kafka-delete-records.bat --bootstrap-server localhost:9092 --offset-json-file delete-records.json
+
+#segment decoding
+bin\windows\kafka-run-class.bat kafka.tools.DumpLogSegments --deep-iteration --print-data-log --files data\kafka-logs\test-0\00000000000000000000.log
+
+#kafka manager
+C:\kafka-manager\bin\kafka-manager.bat
+
+#kafka connect
+bin\windows\connect-standalone.bat config\connect-standalone.properties config\connect-file-source.properties config\connect-file-sink.properties
+
+#kafka stream
+bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic streams-plaintext-input
+bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic streams-wordcount-output --config cleanup.policy=compact
+bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic streams-plaintext-input
+bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic streams-wordcount-output
+bin\windows\kafka-run-class.bat org.apache.kafka.streams.examples.wordcount.WordCountDemo
+bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic streams-plaintext-input
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic streams-wordcount-output --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property print.value=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+
+=======================================================================================================================================================================================================
+#Kafka commands (*nix/mac)
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+bin/kafka-topics.sh --describe --bootstrap-server localhost:9092 --topic test
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+bin/kafka-topics.sh --delete --bootstrap-server localhost:2181 --topic test
+
+#consumer groups
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group test-group
+
+#reset offset
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --reset-offsets --to-earliest --dry-run --group test-group --topic test
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --reset-offsets --to-earliest --execute --group test-group --topic test
+
+#kafka manager
+~/kafka-manager/bin/kafka-manager.sh
+
+#kafka connect
+bin/connect-standalone.sh config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+
+#kafka stream
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic streams-plaintext-input
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic streams-wordcount-output --config cleanup.policy=compact
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe
+bin/kafka-run-class.sh org.apache.kafka.streams.examples.wordcount.WordCountDemo
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic streams-plaintext-input
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic streams-wordcount-output --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property print.value=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+=======================================================================================================================================================================================================
+
+#Case Study
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic ORDER_CREATED
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic ORDER_APPROVED
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic ORDER_REJECTED

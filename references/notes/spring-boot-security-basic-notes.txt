@@ -1,0 +1,4 @@
+STEP 1: Add Dependency -> spring-boot-security-starter
+STEP 2: Insert User Details (UserAccount Entity) -> User Registration page or Load from backend 
+STEP 3: Write CustomUserDetailsService which implements UserDetailsService to fetch User object
+STEP 4: Security Configuration -> configure Authentication Types (Form or Basic) and Authorization Rules

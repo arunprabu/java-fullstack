@@ -1,0 +1,35 @@
+Spring Boot Overview
+	- Minimize configuration and boilerplate code
+	- Production ready standalone application
+	- Provides various non functional / infra features
+
+Spring Boot Components
+	- Auto Configuration
+	- Spring Boot Starters
+	- Spring Boot Parent Starter
+
+Creating Spring Boot project
+	- Spring Boot Maven project
+	- Spring Boot Starter
+	- Sprint Boot Initialzr
+	- Spring Boot CLI
+		- spring init --dependencies=web SpringBootCliEx
+				
+Features
+	- @SpringBootApplication
+		- @ComponentScan
+		- @Configuration
+		- @EnableAutoConfiguration
+	
+	- Spring Application	
+	- CommandLine Runner
+	
+	- Externalized Configuration
+		- property file
+		- yaml file
+	- Application Properties
+	- Logging
+	- Packaging
+	- Profiling	
+	- DevTools
+	- Monitoring -> Actuator	

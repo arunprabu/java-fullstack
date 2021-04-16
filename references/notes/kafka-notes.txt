@@ -1,0 +1,51 @@
+Messaging Systems
+	- Queue
+	- Topic
+Distributed Messaging Systems
+Kafka Introduction
+	- Distributed Streaming Platform
+	- Messaging | Storage | Stream Processing
+	
+	- Background
+		- Developed by Linkedin
+		- Open sourced in 2011
+		- Current version 2.7.0
+		- Developed in Scala
+		
+	- Kafka Concepts
+		- Topic			=> stream of records
+		- Partition		=> portion of topic divided based on some logic to scale the storage and improve parallelism 
+		- Offset 		=> uniquely identifies each record within the partition
+		- Leader		=> leader partition handles all read/write requests
+		- Follower		=> passively replicate the leader and follow the instructions
+		- Producer		=> publish data to the topics
+		- Consumer		=> consume the published data from the topic subscribed by the consumer group it belongs to
+		- ConsumerGroup	=> logical group of consumers to subscribe and process data published in a topic
+		
+		- Broker		=> component which provides messaging and storage capabilities
+		- Node			=> single physical server where broker runs
+		- Cluster		=> group of brokers
+		- Replication	=> duplication of partition for fault tolerance by given replication factor 		
+		
+		- Last Committed Offset		=> Offset of Consumed and Ack message
+		- Current Offset/Position 	=> Offset of Consumed and Not Ack messge
+		- High Watermark			=> Offset of last message Written and Replicated in all ISR
+		- Log End Offset			=> Offset of last message written on topic		
+
+Kafka Producer
+Kafka Consumer
+
+Kafka Connector
+Kafka Streams
+
+Kafka Monitoring Tools
+	[Free Open Source]
+	- Kafka Manager => CMAK (Cluster Manager for Apache Kafka)
+	- KafDrop
+	- LinkedIn Burrow
+	- Kafka Tool
+	
+	[Commercial]
+	- Confluent Control Centre
+	- Lenses 
+	- Datadog Kafka Dashboard

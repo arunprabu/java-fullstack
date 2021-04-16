@@ -1,0 +1,74 @@
+Kubernetes
+- Introduction
+- What is Kubernetes	=> container management/orchestration platform
+- Docker Swarm vs Kubernetes
+	- Docker Swarm
+		pros
+		- Ease of setup
+		- Faster self healing
+		- Simple to medium complex usecases
+		cons
+		- Lack of management console in free version
+		- Complex usecase not fits well
+		- Locked in to docker container
+		
+	- K8s
+		pros
+		- Open source
+		- Designed to run different type of containers (docker, rkt, cri-o) => CRI (Container Runtime Interface)
+		- Medium to complex usecases
+		- Designed as modular and pluggable components
+		- Dashboard for monitoring and management
+		cons
+		- complex to setup
+		- required more resources to run
+	
+		
+- Kubernetes Architecture
+- Kubernetes Components
+	- Master Components
+		- Kube API Server	=> all external/internal communcation will be routed thru API server
+		- etcd				=> key/value based datastore
+		- Kube Scheduler	=> schedules the requests based on resource availability
+		- Kube Controller Manager	=> collects stats from all nodes and monitor continuously to take appropriate action
+		- Cloud Controller Manager	=> integration with cloud providers
+			
+	- Node Components
+		- Kubelet			=> manages worker node
+		- Container Runtime	=> can run the containers complies to CRI (Container Runtime Interface) spec
+		- Kube Proxy		=> enables networking between k8s pods and nodes
+		
+	- Kubectl				=> k8s cli client
+	
+- Kubernetes Concepts (Resources / Objects)
+	- Namespace
+	- Manifest
+		- Label
+		- Annotation
+		- Selector
+		
+	- Pod
+	- Service -> ClusterIP, NodePort, LoadBalancer, ExternalName
+	
+	- Deployment
+		- replication
+		- rolling updates
+		- rollbacks
+			
+	- Replication Controller	
+	- ReplicaSet
+	
+	- StatefulSet
+	- DaemonSet
+	
+	- Job
+	- CronJob
+	
+	- ConfigMap
+	- Secret
+	
+- Networking
+- Volumes / Storage
+	- Local FS
+	- NFS
+	- Cloud Storage

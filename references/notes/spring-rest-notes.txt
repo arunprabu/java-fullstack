@@ -1,0 +1,63 @@
+WebServices
+  - RESTful Webservices - HTTP protocol
+  - Resource
+      - Abstraction of information
+	  - Addressability -> URI - Nouns
+	  - Accessibility -> HTTP Verbs - POST, PUT, GET, DELETE, etc,..
+	  	  - JAXB - XML Format
+	  - Representation -> Content Type - Media Type - HTML, JSON, XML, PDF, etc.
+  - Spring REST
+	  - Very similar to Spring MVC
+	  - HttpMessageConverters
+	  - @RestController  <- @Controller + @ResponseBody
+	  - @RequestMapping -> Request Method, Path, Consumes / Produces -> @GetMapping, @PostMapping, etc..	  - 
+	  - @PathVariable
+	  - @RequestParam
+	  - @MatrixVariable
+	  - @RequestBody
+	  - @ResponseBody
+	  
+	  - Validation
+	  - Session Management
+	  
+	  - JAXB - XML Format
+	  - Jackson - JSON Format
+	  
+	  - Exception Handling
+	  
+	  - Content Negotiation
+	  
+	  - REST Client
+			- Postman
+			- REST Template	  
+  
+  - Employee Management Api
+	  - GET ALL	/employees
+	  - GET 	/employees/{id}
+	  - POST	/employees
+	  - PUT		/employees/{id}
+	  - DELETE	/employese/{id}
+  - Employee CRUD integration with Angular
+  - REST API Design and Documentation
+	  - WADL (Web Application Description Language)
+	  - Swagger 
+			- Open API Specification (OAS - 3)
+			- Create Mock API Service
+			- Autogenerate Code from Spec
+			- HTML Documentation for REST API
+			- YAML format
+	  - RAML
+			- RAML Specifiation
+			
+  - Appendix
+	  - HttpMessageConverters
+			- ByteArrayHttpMessageConverter – converts byte arrays
+			- StringHttpMessageConverter – converts Strings
+			- ResourceHttpMessageConverter – converts org.springframework.core.io.Resource for any type of octet stream
+			- SourceHttpMessageConverter – converts javax.xml.transform.Source
+			- FormHttpMessageConverter – converts form data to/from a MultiValueMap<String, String>.
+			- Jaxb2RootElementHttpMessageConverter – converts Java objects to/from XML (added only if JAXB2 is present on the classpath)
+			- MappingJackson2HttpMessageConverter – converts JSON (added only if Jackson 2 is present on the classpath)
+			- MappingJacksonHttpMessageConverter – converts JSON (added only if Jackson is present on the classpath)
+			- AtomFeedHttpMessageConverter – converts Atom feeds (added only if Rome is present on the classpath)
+			- RssChannelHttpMessageConverter – converts RSS feeds (added only if Rome is present on the classpath)  

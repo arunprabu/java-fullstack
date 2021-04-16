@@ -1,0 +1,46 @@
+ORM Overview
+Hibernate Overview
+	- Configuration
+		- connection configuration
+		- class table mapping
+	- SessionFactory
+	- Session
+	- Transaction
+	- Query
+	- Criteria
+	
+	- Annotation based Configuration
+	- Hibernate integration with Spring
+	- Hibernate integration with Spring MVC
+	
+	- JPA (Java Persitence API)
+	
+	- O/R Mapping
+		- Association
+		- Component
+		- Collection
+	- Criteria API
+	
+Spring MVC + Hibernate Integration
+	1) Add maven dependencies in the POM
+		- hibernate-core
+		- spring-orm
+		- commons-cpdb2
+		- mysql-connector
+	2) Add below bean definitions in applicaiton context config (servlet-context.xml)
+		- Datasource bean
+			- DB connectivity details - url, credentials, connection pool size, etc.
+		- SessionFactory bean
+			- Datasource, Hibernate properties, Annotated Entity classes
+		- Transaction Manager bean
+			- Inject SessionFactorBean
+			- Register with Spring Container
+	3) Annotate Entity classes
+		- @Entity, @Table, @Column, @OneToOne, @OneToMany, @ManyToOne, @ManyToMany
+	4) Create DAO classes
+		- @Repository
+		- Obtain SessionFactory reference
+		- Perform CRUD operations
+	5) Update Service classes to refer DAO
+		- Inject DAO reference
+		- Perform CRUD operations

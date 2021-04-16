@@ -1,0 +1,84 @@
+{
+	"variables": [],
+	"info": {
+		"name": "REST Labs - Employee CRUD",
+		"_postman_id": "d5f43143-1314-930d-0924-5349040a5b88",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Employee CRUD - Create",
+			"request": {
+				"url": "http://localhost:8080/employee-mgmt-with-spring-rest/employees",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Kumar\",\r\n\t\"age\": 40,\r\n\t\"gender\": \"Male\",\r\n\t\"contractor\": false,\r\n\t\"skills\": [\"Technical\", \"Functional\"],\r\n\t\"designation\": \"Manager\",\r\n\t\"department\": \"Finance\",\r\n\t\"address\": \"Bengaluru\",\r\n\t\"country\": \"India\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Employee CRUD - List",
+			"request": {
+				"url": "http://localhost:8080/employee-mgmt-with-spring-rest/employees",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Employee CRUD - Get Employee",
+			"request": {
+				"url": "http://localhost:8080/employee-mgmt-with-spring-rest/employees/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Employee CRUD - Update",
+			"request": {
+				"url": "http://localhost:8080/employees/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Kumar\",\r\n\t\"age\": 45,\r\n\t\"gender\": \"Male\",\r\n\t\"contractor\": false,\r\n\t\"skills\": [\"Technical\", \"Functional\"],\r\n\t\"designation\": \"Manager\",\r\n\t\"department\": \"Finance\",\r\n\t\"address\": \"Bengaluru\",\r\n\t\"country\": \"India\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Employee CRUD - Delete",
+			"request": {
+				"url": "http://localhost:8080/employee-mgmt-with-spring-rest/employees/31",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

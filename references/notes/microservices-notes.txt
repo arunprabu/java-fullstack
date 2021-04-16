@@ -1,0 +1,171 @@
+Introduction to Microservices
+	- Architecture Styles
+	- Monolith
+	- Distributed Architecture
+	- SOA (Service Oriented Architecture)
+	- MSA (Microservices based Architecture)
+	- Principles of Microserives
+	- Characteristics of Microservices
+		- Componentiation as Services
+		- Organized around Business Capabilities
+		- Design for Failure
+		- Infrastructure Automation -> DevOps -> Maven, Jenkins, Docker, K8s
+		- Decentralized Data Management
+		- Decentralized Governance => AuthZ (specific to service) => AuthN (Token based OAuth)
+		- Products not Projects 
+		- Smart Endpoints Dumb Pipes
+		- Evolutionary Design
+	- Reactive Manifesto
+		- Responsive
+		- Resilient
+		- Elastic
+		- Message Driven (Async) - Communication - Sync / Async
+	- Reactive Microservices
+	- Reactive Microservices Characteristics
+	- Microservices and API Ecosystem
+	- Benefits and Limitations
+
+Microservices Architecture
+	- REST API
+	- Messaging
+	- Inter Service Communication
+	- Transaction Management
+	- Reference Architecture
+	
+Microservices Design
+	- DDD (Domain Driven Design)
+		- Domain
+		- Domain Logic/Business Logic
+		- Model
+		- Context
+		- Bounded Context
+		- Entity 
+		- ValueObject
+		- Aggregate
+		- Repository		
+		- Factory
+	
+	- Design Patterns
+		- Decomposing Microserives
+				- Cohesion -> SRP (Single Responsibility Principle) -> Do exactly one task. Do it better.
+				- Loose Coupling -> CCP (Common Closure Principle) -> Keep all related things together
+			- Decompose by business capability
+				- decompose app based on business functionality / org structure
+				- follows Conway's Laws => system design (Arch) tend to be similar to org structure
+				
+				Pitfalls:
+				---
+					- Inefficiences in the existing org structure / process could be carried in the service design
+				
+			- Decompose by business sub-domain (DDD - Domain Driven Design)
+				 
+				 - decompose app based on business sub-domain
+						- banking
+							- account mgmt (bounded context) (core)
+								- account (core)
+								- customer (support) -> details captured with respect to a/c
+															
+							- customer mgmt (support)
+								- customer (core) -> details captured with respect to customer
+								
+							- support (generic)
+								- ticket (core)
+								- customer (support)
+								- notification (generic)
+				- helps to figure out if any inefficiency in the existing process / org structure
+			
+		- Cross Cutting Concerns
+			- Microservices Chasis -> Spring Boot and Cloud
+			
+		- Service Discovery
+			- Registry Server
+				- Eureka (Spring Cloud Netflix) => spring-cloud-starter-eureka-server
+				- Consul (Hashicorp)
+				- Zookeeper
+				
+			- Service Registration
+				- product-service	=> spring-cloud-starter-eureka-client
+				- spring.application.name = product-service
+				- eureka.client.register-with-eureka=true
+
+			- Service Discovery
+				- discovery-service	=> spring-cloud-starter-eureka-client
+				- eureka.client.fetch-registry=true
+				- Lookup using service-id => product-service
+				
+		- Configuration Management
+			- Spring Cloud Config
+			
+			- Configuration Server => spring-cloud-config-server
+			- Configuration Client => spring-cloud-starter-config
+			
+			- Spring Cloud Bus => [stardard events] helps to propagate the events from one source service to one or many target services
+				- Spring Cloud Bus Config Server	[Source]
+				- Spring Cloud Bus Config Client	[Target 1..n]
+			
+			- Spring Cloud Stream => [custom events/msgs] helps to stream messages from one source to one or more target services
+				- RabbitMQ
+				- Kafka
+				
+		- Data Management
+			- Shared Database
+			- Database per Service
+		- Service Deployment
+		- Observability
+		- Communication Styles
+			- Synchronous Communication
+				- RPI (Remote Procedure Invocation)
+				- REST/SOAP Webservices
+			- Asynchronous Communication
+				- Messaging
+				- RabbitMQ
+				- Kafka
+		- Security
+		- UI Patterns
+		- External API
+			- API Gateway (Netflix Zuul)
+				- Authentication
+				- Routing
+				- Filtering
+				- Proxy
+				- etc.
+			- Backend for Frontend
+			
+		- Transactional Messaging
+		
+		- Reliablity / Resiliency
+			- Circuit Breaker - ensures service failure is not cascading to other services
+			- Netflix Hystrix
+				- fallback response upon timeout or failure
+				
+				- initially circuit is in closed state
+				- set threshold for failure (circuit breaker properties)
+					- circuitBreaker.requestVolumeThreshold -> 3
+					- circuitBreaker.errorThresholdPercentage -> 50% => (timeout req + failed req + short circuit req) / total request
+					- metrics.rollingStats.timeInMilliseconds -> 10secs
+					- circuitBreaker.sleepWindowInMilliseconds -> 10secs				
+				- once threshold reached circuit will open
+				
+				- short circuit response will be sent back till circuit closed
+				
+				- random probes/requests to target service
+				- if the request passes then circuit will closed
+
+			- @HystrixCommand => creates circuit breaker instance
+			- Typically have circuit break configured in all potential failure points
+				- invoking internal/external service
+				- integration with database
+				- integration with messaging system
+				
+			- Hystrix Dashboard
+			
+		- Testing
+		
+		- Load Balancing
+			- Client Side Load Balancing
+			- Netflix Ribbon
+			
+			- Create RestTemplate applying @LoadBalanced
+			- Invoke services using this RestTemplate instance
+			- http://<<service-id>>/products
+			- http://product-service/incidents			

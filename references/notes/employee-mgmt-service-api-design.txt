@@ -1,0 +1,27 @@
+Employee API
+============
+
+Base URL: http://localhost:8080/employee-mgmt-with-spring-rest
+
+Addressability - /employees
+Accessability - List, Add, Udpate, Delete => GET, POST, PUT, DELETE
+Representation - XML, JSON
+
+GET		/employees			=> List All Employees
+GET 	/employees/{id}		=> List employee for given Id
+POST	/employees			=> Create Employee
+PUT		/employees/{id}		=> Update Employee
+DELETE	/employees/{id}		=> Delete Employee
+
+STEPS
+=====
+1) Create Maven Project (WebApp) - employee-mgmt-with-spring-rest
+2) Add Dependencies in the pom.xml - [copy from spring-rest-examples]
+3) Create java source folder
+4) Configure Dispatcher Servlet
+5) Create Employee Config
+6) Create Employee Controller
+7) Create Employee Model
+8) Create Employee Service
+9) Create Employee Dao
+10) Employee REST API is UP
