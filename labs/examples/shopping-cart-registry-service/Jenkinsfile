@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    tools {
+        maven 'maven3.6.2'
+        jdk 'jdk8'
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+					echo "Build initialized..."
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
+	
+        stage ('Test') {
+            steps {
+				dir('labs/examples/shopping-cart-registry-service') {
+					sh 'mvn clean test' 
+				}
+            }
+            post {
+                success {
+					dir("labs/examples/shopping-cart-registry-services") {
+						junit 'target/surefire-reports/**/*.xml'
+					}
+                }
+            }
+        }		
+		
+        stage ('Build') {
+            steps {
+				dir('labs/examples/shopping-cart-registry-service') {
+					sh 'mvn package -DskipTests' 
+				}
+            }
+        }		
+		
+        stage ('Deploy') {
+            steps {
+                sh '''
+                    echo "Deploy to Server....DONE"
+                '''
+            }
+        }		
+    }
+}
